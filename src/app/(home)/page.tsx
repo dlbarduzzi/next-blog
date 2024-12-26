@@ -1,3 +1,5 @@
+import { allPosts } from "content-collections"
+
 export default function Page() {
   return (
     <div className="px-4 py-8">
@@ -15,6 +17,20 @@ export default function Page() {
           <div>
             <code className="font-code text-[15px]">Some code font example here.</code>
           </div>
+        </div>
+      </div>
+      <div className="pt-8">
+        <div className="mx-auto max-w-4xl rounded-md bg-gray-100 px-6 py-4">
+          <ul>
+            {allPosts.map(post => (
+              <li key={post._meta.path}>
+                <a href={`/posts/${post._meta.path}`}>
+                  <h3>{post.title}</h3>
+                  <p>{post.summary}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
