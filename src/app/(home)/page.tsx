@@ -1,38 +1,41 @@
 import { allPosts } from "content-collections"
+import { Container } from "@/components/container"
+
+import { cn } from "@/lib/utils"
 
 export default function Page() {
   return (
-    <div className="px-4 py-8">
-      <div className="mx-auto max-w-4xl rounded-md bg-gray-100 px-6 py-4">
-        <h1 className="text-lg font-bold tracking-tight">Fun Fact</h1>
-        <p className="pt-5 text-base leading-7">
-          Did you know that octopuses have three hearts? Two pump blood to the gills,
-          while the third pumps it to the rest of the body. But here is the twist: when
-          an octopus swims, the heart pumping to the body stops beating! That is one
-          reason why they prefer crawling over swimming—it’s less tiring for them!
-        </p>
-      </div>
-      <div className="pt-8">
-        <div className="mx-auto max-w-4xl rounded-md bg-gray-100 px-6 py-4">
-          <div>
-            <code className="font-code text-[15px]">Some code font example here.</code>
-          </div>
+    <Container
+      className={cn("relative grid w-full grid-cols-[2fr_1fr] items-start gap-8 py-8")}
+    >
+      <section className="space-y-8">
+        <ul>
+          {allPosts.map(post => (
+            <li key={post._meta.path} className="rounded-md bg-gray-100 px-6 py-4">
+              <a href={`/posts/${post._meta.path}`}>
+                <h3>{post.title}</h3>
+                <p>{post.summary}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="space-y-8">
+          {Array.from({ length: 14 }).map((_, index) => (
+            <div key={index} className="rounded-md bg-gray-100 px-4 py-[44px]">
+              Content
+            </div>
+          ))}
         </div>
-      </div>
-      <div className="pt-8">
-        <div className="mx-auto max-w-4xl rounded-md bg-gray-100 px-6 py-4">
-          <ul>
-            {allPosts.map(post => (
-              <li key={post._meta.path}>
-                <a href={`/posts/${post._meta.path}`}>
-                  <h3>{post.title}</h3>
-                  <p>{post.summary}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
+      </section>
+      <section className="sticky top-8 bg-gray-100">
+        <div className="space-y-2">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index} className="px-4 py-3">
+              Sidebar
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </Container>
   )
 }

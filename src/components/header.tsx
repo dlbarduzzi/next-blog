@@ -13,6 +13,7 @@ export function Header() {
               <span className="sr-only">Link to home page.</span>
             </Link>
           </div>
+          <div>Right</div>
         </div>
       </Container>
     </header>
