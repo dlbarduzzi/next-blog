@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils"
 export default function Page() {
   return (
     <Container
-      className={cn("relative grid w-full grid-cols-[2fr_1fr] items-start gap-8 py-8")}
+      className={cn(
+        "relative w-full space-y-8 py-8 lg:grid lg:grid-cols-[2fr_1fr]",
+        "lg:items-start lg:gap-x-8 lg:space-y-0"
+      )}
     >
       <section className="space-y-8">
         <ul>
@@ -27,13 +30,9 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section className="sticky top-8 bg-gray-100">
-        <div className="space-y-2">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="px-4 py-3">
-              Sidebar
-            </div>
-          ))}
+      <section className="rounded-md bg-gray-100 lg:sticky lg:top-[6rem]">
+        <div className="py-24">
+          <div className="px-4 text-center">Categories</div>
         </div>
       </section>
     </Container>
