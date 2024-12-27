@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { allPosts } from "content-collections"
 import { Container } from "@/components/container"
 
@@ -11,24 +13,37 @@ export default function Page() {
         "lg:items-start lg:gap-x-8 lg:space-y-0"
       )}
     >
-      <section className="space-y-8">
-        <ul>
+      <section>
+        <ul className="space-y-8">
           {allPosts.map(post => (
-            <li key={post._meta.path} className="rounded-md bg-gray-100 px-6 py-4">
-              <a href={`/posts/${post._meta.path}`}>
-                <h3>{post.title}</h3>
-                <p>{post.summary}</p>
-              </a>
-            </li>
+            <Link key={post.title} href={`/blog/${post._meta.path}`}>
+              <li
+                className={cn(
+                  "rounded-md bg-gray-100 px-6 py-4 transition-colors hover:bg-gray-200"
+                )}
+              >
+                <article>
+                  <dl>
+                    <dt className="sr-only">Date</dt>
+                    <dd className="text-sm">
+                      <time dateTime={post.date.toISOString()}>
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </time>
+                    </dd>
+                  </dl>
+                  <h3 className="pt-5 font-head text-lg font-extrabold tracking-tight">
+                    {post.title}
+                  </h3>
+                  <p className="leading-7">{post.summary}</p>
+                </article>
+              </li>
+            </Link>
           ))}
         </ul>
-        <div className="space-y-8">
-          {Array.from({ length: 14 }).map((_, index) => (
-            <div key={index} className="rounded-md bg-gray-100 px-4 py-[44px]">
-              Content
-            </div>
-          ))}
-        </div>
       </section>
       <section className="rounded-md bg-gray-100 lg:sticky lg:top-[6rem]">
         <div className="py-24">
