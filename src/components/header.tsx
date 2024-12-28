@@ -1,6 +1,7 @@
 import Link from "next/link"
+
+import { Logo } from "./logo"
 import { Container } from "./container"
-import { Logo } from "./Logo"
 
 export function Header() {
   return (
