@@ -39,10 +39,18 @@ const a = ({ href, ...props }: HTMLProps<HTMLAnchorElement>) => {
     throw new TypeError("href is required")
   }
 
-  const className = cn("")
+  const className = cn(
+    "inline-block font-bold text-black underline decoration-gray-400 decoration-2",
+    "underline-offset-2 transition-colors hover:text-rose-500",
+    "hover:decoration-rose-400"
+  )
 
   if (href.startsWith("/")) {
     return <Link href={href} className={className} {...props} />
+  }
+
+  if (href.startsWith("#")) {
+    return <a href={href} className={className} {...props} />
   }
 
   return (
@@ -68,6 +76,10 @@ const li = ({ ...props }: HTMLProps<HTMLLIElement>) => {
   return <li className={cn("marker:text-black")} {...props} />
 }
 
+const blockquote = ({ ...props }: HTMLProps<HTMLQuoteElement>) => {
+  return <blockquote className={cn("border-black italic")} {...props} />
+}
+
 const codeBlock = ({ ...props }: HTMLProps<HTMLElement>) => {
   return <code className="" {...props} />
 }
@@ -81,7 +93,18 @@ export function Mdx({ code, components }: ComponentProps<typeof MDXContent>) {
     <div className="prose max-w-none">
       <MDXContent
         code={code}
-        components={{ h1, h2, a, p, ul, li, code: codeBlock, strong, ...components }}
+        components={{
+          h1,
+          h2,
+          a,
+          p,
+          ul,
+          li,
+          blockquote,
+          code: codeBlock,
+          strong,
+          ...components,
+        }}
       />
     </div>
   )

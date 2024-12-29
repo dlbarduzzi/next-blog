@@ -33,6 +33,15 @@ export default {
         "collapsible-up": "collapsible-up 0.2s ease-out",
         "soft-spin": "soft-spin 1s ease-in-out infinite",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            blockquote: {
+              quotes: "none",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [tailwindcssForms, tailwindcssAnimate, tailwindTypography],
