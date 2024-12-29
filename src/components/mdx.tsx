@@ -5,8 +5,28 @@ import { MDXContent } from "@content-collections/mdx/react"
 
 import { cn } from "@/lib/utils"
 
+const h1 = ({ ...props }: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h1
+      className={cn(
+        "mb-6 mt-14 font-sans text-2xl font-bold tracking-tight text-black",
+        "first:mt-0 md:text-3xl"
+      )}
+      {...props}
+    />
+  )
+}
+
 const h2 = ({ ...props }: HTMLProps<HTMLHeadingElement>) => {
-  return <h2 className={cn("")} {...props} />
+  return (
+    <h2
+      className={cn(
+        "mb-6 mt-10 font-head text-2xl font-bold tracking-tight text-black",
+        "text-rose-500 first:mt-0 md:text-2xl"
+      )}
+      {...props}
+    />
+  )
 }
 
 //
@@ -37,7 +57,15 @@ const a = ({ href, ...props }: HTMLProps<HTMLAnchorElement>) => {
 }
 
 const p = ({ ...props }: HTMLProps<HTMLParagraphElement>) => {
-  return <p className={cn("")} {...props} />
+  return <p className={cn("text-base font-normal leading-8 text-black")} {...props} />
+}
+
+const ul = ({ ...props }: HTMLProps<HTMLUListElement>) => {
+  return <ul className={cn("text-base font-normal leading-7 text-black")} {...props} />
+}
+
+const li = ({ ...props }: HTMLProps<HTMLLIElement>) => {
+  return <li className={cn("marker:text-black")} {...props} />
 }
 
 const codeBlock = ({ ...props }: HTMLProps<HTMLElement>) => {
@@ -53,7 +81,7 @@ export function Mdx({ code, components }: ComponentProps<typeof MDXContent>) {
     <div className="prose max-w-none">
       <MDXContent
         code={code}
-        components={{ h2, a, p, code: codeBlock, strong, ...components }}
+        components={{ h1, h2, a, p, ul, li, code: codeBlock, strong, ...components }}
       />
     </div>
   )

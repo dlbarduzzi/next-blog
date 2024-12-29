@@ -16,7 +16,21 @@ export const fontSans = localFont({
   variable: "--font-sans",
 })
 
-export const fontHead = fontSans
+export const fontHead = localFont({
+  src: [
+    {
+      path: "../fonts/Chubbo.ttf",
+      style: "normal",
+      weight: "100 900",
+    },
+    {
+      path: "../fonts/ChubboItalic.ttf",
+      style: "italic",
+      weight: "100 900",
+    },
+  ],
+  variable: "--font-head",
+})
 
 export const fontCode = localFont({
   src: [

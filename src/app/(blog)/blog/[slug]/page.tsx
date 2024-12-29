@@ -47,7 +47,7 @@ export default async function Page({ params }: Params) {
               </dl>
               <h1
                 className={cn(
-                  "pt-5 font-head text-2xl font-extrabold tracking-tight md:text-4xl"
+                  "pt-5 font-sans text-2xl font-extrabold tracking-tight md:text-4xl"
                 )}
               >
                 {post.title}
