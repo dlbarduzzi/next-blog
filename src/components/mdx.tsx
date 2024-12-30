@@ -29,11 +29,6 @@ const h2 = ({ ...props }: HTMLProps<HTMLHeadingElement>) => {
   )
 }
 
-//
-//
-// TODO: Redo this.
-//
-//
 const a = ({ href, ...props }: HTMLProps<HTMLAnchorElement>) => {
   if (typeof href !== "string") {
     throw new TypeError("href is required")
@@ -69,7 +64,9 @@ const p = ({ ...props }: HTMLProps<HTMLParagraphElement>) => {
 }
 
 const ul = ({ ...props }: HTMLProps<HTMLUListElement>) => {
-  return <ul className={cn("text-base font-normal leading-7 text-black")} {...props} />
+  return (
+    <ul className={cn("ps-10 text-base font-normal leading-7 text-black")} {...props} />
+  )
 }
 
 const li = ({ ...props }: HTMLProps<HTMLLIElement>) => {
@@ -81,16 +78,16 @@ const blockquote = ({ ...props }: HTMLProps<HTMLQuoteElement>) => {
 }
 
 const codeBlock = ({ ...props }: HTMLProps<HTMLElement>) => {
-  return <code className="" {...props} />
+  return <code className="font-code text-indigo-500" {...props} />
 }
 
 const strong = ({ ...props }: HTMLProps<HTMLElement>) => {
-  return <strong className="" {...props} />
+  return <strong className="font-bold text-black" {...props} />
 }
 
 export function Mdx({ code, components }: ComponentProps<typeof MDXContent>) {
   return (
-    <div className="prose max-w-none">
+    <div className="prose max-w-none text-red-500">
       <MDXContent
         code={code}
         components={{

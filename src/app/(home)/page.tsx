@@ -6,6 +6,7 @@ import { Container } from "@/components/container"
 import { cn } from "@/lib/utils"
 
 export default function Page() {
+  const posts = allPosts.toSorted((a, b) => b.date.getTime() - a.date.getTime())
   return (
     <Container
       className={cn(
@@ -15,8 +16,8 @@ export default function Page() {
     >
       <section>
         <ul className="space-y-8">
-          {allPosts.map(post => (
-            <Link key={post.title} href={`/blog/${post._meta.path}`}>
+          {posts.map(post => (
+            <Link key={post.title} href={`/blog/${post._meta.path}`} className="block">
               <li
                 className={cn(
                   "rounded-md bg-gray-100 px-6 py-4 transition-colors hover:bg-gray-200"

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 
 import "@/styles/globals.css"
+import "@/styles/mdx.css"
 
 import { ScreenSize } from "@/components/screen-size"
 import { fontSans, fontHead, fontCode } from "@/lib/fonts"
