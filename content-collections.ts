@@ -1,5 +1,6 @@
 import type { Options as RehypePrettyCodeOptions } from "rehype-pretty-code"
 
+import rehypeSlug from "rehype-slug"
 import rehypePrettyCode from "rehype-pretty-code"
 
 import { compileMDX } from "@content-collections/mdx"
@@ -26,7 +27,7 @@ const posts = defineCollection({
     const mdx = await context.cache(document.content, async () => {
       return compileMDX(context, document, {
         remarkPlugins: [remarkGfm, remarkHeading],
-        rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+        rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions, rehypeSlug]],
       })
     })
     return {
