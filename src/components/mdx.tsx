@@ -22,11 +22,17 @@ const h2 = ({ ...props }: HTMLProps<HTMLHeadingElement>) => {
   if (isAnchorLink) {
     return (
       <h2
-        className="group relative mb-6 mt-10 flex items-center bg-gray-100 font-head text-2xl tracking-tight first:mt-0 md:text-2xl"
+        className={cn(
+          "group relative mb-6 mt-10 flex items-center font-head text-2xl",
+          "scroll-mt-20 tracking-tight first:mt-0 md:text-2xl"
+        )}
         {...props}
       >
-        <span className="absolute -left-6 hidden text-rose-500 group-hover:inline-block">
-          {" "}
+        <span
+          className={cn(
+            "absolute -left-6 hidden text-rose-500 group-hover:inline-block"
+          )}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
