@@ -23,42 +23,44 @@ const h2 = ({ ...props }: HTMLProps<HTMLHeadingElement>) => {
     return (
       <h2
         className={cn(
-          "group relative mb-6 mt-10 flex items-center font-head text-2xl",
-          "scroll-mt-20 tracking-tight first:mt-0 md:text-2xl"
+          "mb-6 mt-10 font-head text-2xl font-bold tracking-tight",
+          "group relative flex items-center text-rose-500 first:mt-0 md:text-2xl"
         )}
         {...props}
       >
-        <span
+        <a
+          href={`#${props.id}`}
           className={cn(
-            "absolute -left-6 hidden text-rose-500 group-hover:inline-block"
+            "absolute -left-6 hidden text-rose-500 opacity-0",
+            "group-hover:opacity-100 md:block"
           )}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-5"
-          >
-            <line x1="4" x2="20" y1="9" y2="9" />
-            <line x1="4" x2="20" y1="15" y2="15" />
-            <line x1="10" x2="8" y1="3" y2="21" />
-            <line x1="16" x2="14" y1="3" y2="21" />
-          </svg>
-        </span>
-        <a href={`#${props.id}`} className="font-bold text-rose-500 no-underline">
-          {props.children}
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="size-5"
+            >
+              <line x1="4" x2="20" y1="9" y2="9" />
+              <line x1="4" x2="20" y1="15" y2="15" />
+              <line x1="10" x2="8" y1="3" y2="21" />
+              <line x1="16" x2="14" y1="3" y2="21" />
+            </svg>
+          </span>
         </a>
+        {props.children}
       </h2>
     )
   }
   return (
     <h2
       className={cn(
-        "mb-6 mt-10 bg-gray-100 font-head text-2xl font-bold tracking-tight",
+        "mb-6 mt-10 font-head text-2xl font-bold tracking-tight",
         "text-rose-500 first:mt-0 md:text-2xl"
       )}
       {...props}
