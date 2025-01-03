@@ -24,7 +24,8 @@ const h2 = ({ ...props }: HTMLProps<HTMLHeadingElement>) => {
       <h2
         className={cn(
           "mb-6 mt-10 font-head text-2xl font-bold tracking-tight",
-          "group relative flex items-center text-rose-500 first:mt-0 md:text-2xl"
+          "group relative flex scroll-mt-20 items-center text-rose-500 first:mt-0",
+          "md:text-2xl"
         )}
         {...props}
       >
